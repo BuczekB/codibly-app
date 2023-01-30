@@ -2,11 +2,16 @@ import React from 'react';
 import './App.css';
 
 import { GetData } from './GetData';
+import { DataContextProvider } from './DataContext';
+import { Test } from './Test';
 
 function App() {
   return (
     <div className="App">
-      <GetData/>
+      <DataContextProvider>
+        <GetData/>
+        <Test/>
+      </DataContextProvider>
     </div>
   );
 }
