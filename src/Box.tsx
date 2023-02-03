@@ -17,9 +17,7 @@ type ArrayFromSwitch = {
 type ReadyArray = {}[] | undefined
 
 
-type ButtonPorps = {
-    event: React.MouseEvent<HTMLButtonElement>
-}
+
 
 
 export const Box = (props:BoxProps) =>{
@@ -32,7 +30,7 @@ export const Box = (props:BoxProps) =>{
 
     const newData = data?.dataBase
 
-    let test:ReadyArray; 
+    let table:ReadyArray; 
 
     useEffect(() =>{
 
@@ -52,7 +50,7 @@ export const Box = (props:BoxProps) =>{
         
         const printItem = item?.map((e) =>{
            return(
-            <div key={e.id} style={{background: `${e.color}`}}>
+            <div className='singleItem' key={e.id} style={{background: `${e.color}`}}>
             <h1>{e.name}</h1>
             <h2>{e.id}</h2>
             <h2>{e.year}</h2>
@@ -73,12 +71,12 @@ export const Box = (props:BoxProps) =>{
 
         const selectItems = items?.map((item) => {  
             return(
-                <div onClick={selectOne} style={{backgroundColor: `${item.color}`}} key={item.id}>
+                <div className='listItems' onClick={selectOne} style={{backgroundColor: `${item.color}`}} key={item.id}>
                     <h2>{item.name}</h2>
                 </div>
             )
         })
-       test = selectItems
+        table = selectItems
     }
 
     const firstPrint = () =>{
@@ -94,7 +92,6 @@ export const Box = (props:BoxProps) =>{
         case 1:
             const firstPage = newData?.filter(e => e.id < 6)
             printElements(firstPage)
-            
         break;
         case 2:
             const secoundPage = newData?.filter(e => e.id > 5 && e.id < 11)
@@ -110,7 +107,7 @@ export const Box = (props:BoxProps) =>{
         <>
        {flag?
        selectItem:
-       test}
+       table}
         </>
     )
 }

@@ -14,7 +14,7 @@ export const SingleElement = (props: SingleElementProps) =>{
 
     const item = selectedItem?.map((e) =>{
         return(
-            <div key={e.id} style={{background: `${e.color}`}}>
+            <div className='singleItem' key={e.id} style={{background: `${e.color}`}}>
                 <h1>{e.name}</h1>
                 <h2>{e.id}</h2>
                 <h2>{e.year}</h2>

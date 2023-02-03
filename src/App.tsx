@@ -22,16 +22,10 @@ const getNumber = (event: React.ChangeEvent<HTMLInputElement>) =>{
   setFlag(false) 
 }
 
-
-
 const paginationId = (event: React.ChangeEvent<unknown>, page:number) =>{
   setFlag(true)
   setPage(page)
 }
-
-
-
-
 
   return (
     <div className="App">

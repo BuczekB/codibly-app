@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.listItems{
+  width: 100vw;
+  text-align: center;
+  text-shadow: 1px 1px 1px black;
+  border: solid black 1px;
+  border-radius: 50px;
+}
+.singleItem{
+  width: 80vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 1px black;
+  border: solid black 1px;
+  border-radius: 50px;
+}
+
