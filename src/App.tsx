@@ -5,7 +5,7 @@ import { GetData } from './GetData';
 import { DataContextProvider } from './DataContext';
 import { Input } from './Input';
 import { SingleElement } from './SingleElement';
-import { PaginationComponent } from './Pagination';
+import { PaginationComponent } from './PaginationComponent';
 import { Box } from './Box';
  
 
@@ -14,8 +14,7 @@ const App = () => {
 
 const [id, setId] = useState(0)
 const [flag, setFlag] = useState<boolean>(true)
-const [pageId, setPageId] = useState<string | undefined>()
-const [changePagination, setChangePagination] = useState<string | null>(null)
+const [page, setPage] = useState<number>(1)
 
 const getNumber = (event: React.ChangeEvent<HTMLInputElement>) =>{
   let selectedId = parseInt(event.target.value)
@@ -23,19 +22,11 @@ const getNumber = (event: React.ChangeEvent<HTMLInputElement>) =>{
   setFlag(false) 
 }
 
-const paginationId = (event: React.ChangeEvent<unknown> ) =>{
-  
-  
-  const labelPagination = (event.target as HTMLInputElement).ariaLabel
-  const page = (event.target as HTMLInputElement).innerText;
-  setPageId(page)
-  setChangePagination(labelPagination)
+
+
+const paginationId = (event: React.ChangeEvent<unknown>, page:number) =>{
   setFlag(true)
- const test = (event.target as HTMLInputElement).classList.value
- console.log(test);
- 
-  
-  
+  setPage(page)
 }
 
 
@@ -47,10 +38,10 @@ const paginationId = (event: React.ChangeEvent<unknown> ) =>{
       <DataContextProvider>
         <Input value={id} getNumber={getNumber}/>
         {flag?
-         <Box pageId = {pageId} />:
+         <Box pageId = {page}/>:
          <SingleElement id={id}/>
       }
-        <PaginationComponent  paginationId = {paginationId}  />
+        <PaginationComponent page={page}  paginationId = {paginationId}  />
         <GetData/>
       </DataContextProvider>
     </div>

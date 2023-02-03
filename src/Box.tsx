@@ -3,7 +3,7 @@ import { setEnvironmentData } from 'worker_threads';
 import { DataContext } from './DataContext';
 
 type BoxProps = {
-    pageId: string | undefined
+    pageId: number | undefined
 }
 
 type ArrayFromSwitch = {
@@ -91,16 +91,16 @@ export const Box = (props:BoxProps) =>{
    
 
     switch(props.pageId){
-        case '1':
+        case 1:
             const firstPage = newData?.filter(e => e.id < 6)
             printElements(firstPage)
             
         break;
-        case '2':
+        case 2:
             const secoundPage = newData?.filter(e => e.id > 5 && e.id < 11)
             printElements(secoundPage)
         break;
-        case '3':
+        case 3:
             const thirdPage = newData?.filter(e =>e.id > 10)
             printElements(thirdPage)
         break;
